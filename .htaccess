@@ -1,0 +1,22 @@
+# Disable caching
+<IfModule mod_headers.c>
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</IfModule>
+
+# Rewrite plugin-info.json to plugin-info.php
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^plugin-info/(.+)\.json$ plugin-info.php?slug=$1 [L,QSA]
+    # Proxy download endpoint for releases
+    RewriteRule ^download/release/(.+)-(.+)\.zip$ download.php [L,QSA]
+    # Proxy download endpoint for branches
+    RewriteRule ^download/branch/(.+)-(.+)\.zip$ download.php [L,QSA]
+</IfModule>
+
+# Protect cache directory
+<FilesMatch "^cache/">
+    Order deny,allow
+    Deny from all
+</FilesMatch> 
