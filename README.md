@@ -1,6 +1,6 @@
 # WordPress Plugin Info and Download API Proxy
 
-This standalone PHP solution provides a WordPress-style plugin info API in JSON, using data fetched from GitHub releases and `package.json` file. It is ideal for custom plugin update APIs or integration with WordPress plugin management tools.
+This PHP solution provides a WordPress-style plugin info API, using data fetched from GitHub releases and `package.json` file. It is ideal for custom plugin update APIs or integration with WordPress plugin management tools.
 
 ## Features
 
